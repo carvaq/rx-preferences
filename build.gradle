@@ -36,6 +36,10 @@ allprojects {
 
     group = GROUP
     version = VERSION_NAME
+
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
 }
 
 ext.deps = [
