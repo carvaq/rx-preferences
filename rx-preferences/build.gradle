@@ -1,32 +1,35 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion
-  buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
-  compileOptions {
-    sourceCompatibility rootProject.ext.javaVersion
-    targetCompatibility rootProject.ext.javaVersion
-  }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
 
-  defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion
-  }
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+    }
 
-  lintOptions {
-    textReport true
-    textOutput 'stdout'
-  }
+    lintOptions {
+        textReport true
+        textOutput 'stdout'
+    }
 }
 
 dependencies {
-  implementation deps.annotations
-  api deps.rxjava2
+    implementation deps.annotations
+    implementation deps.kotlin
+    api deps.rxjava
 
-  testImplementation deps.junit
-  testImplementation deps.assertj
-  testImplementation deps.testcore
-  testImplementation deps.robolectric
+    testImplementation deps.junit
+    testImplementation deps.assertj
+    testImplementation deps.testcore
+    testImplementation deps.robolectric
+
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

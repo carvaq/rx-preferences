@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.jakewharton.butterknife'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
   buildToolsVersion rootProject.ext.buildToolsVersion
 
   compileOptions {
-    sourceCompatibility rootProject.ext.java8Version
-    targetCompatibility rootProject.ext.java8Version
+    sourceCompatibility rootProject.ext.javaVersion
+    targetCompatibility rootProject.ext.javaVersion
   }
 
   defaultConfig {
@@ -29,7 +28,4 @@ dependencies {
   implementation project(':rx-preferences')
   implementation deps.rxandroid
   implementation deps.rxbinding
-  implementation deps.butterknife
-
-  annotationProcessor deps.butterknifeCompiler
 }
